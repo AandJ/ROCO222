@@ -1,5 +1,5 @@
-Monday 25th of September
-
+# Monday 25th of September  
+##What is Markdown  
 Markdown is a lightweight markup language, it is a text to HTML conversion tool which makes code easeir to read and understand.
 
 Markdown syntax
@@ -17,56 +17,47 @@ line break.
 
 Text attributes _italic_, *italic*, __bold__, **bold**, `monospace`.
 
-Horizontal rule:
+To begin i learnt the basic syntax for a markdown document which i have used to format this page, i then using the terminal entered some basic commands to figure out what they do.  
+## Commands.  
+_LS_ - lists the contents of the current directory
 
----
+_cd /tmp_ - Sets the directory to a tempary file location
 
-Bullet list:
+_cd $HOME_ - sets the save directory to home
 
-  * apples
-  * oranges
-  * pears
+_mkdir_ - makes a new directory(folder)
 
-Numbered list:
+_echo "Hello" > hello.md_ - creates a file called "hello.md" containing the contents of the quote marks
 
-  1. apples
-  2. oranges
-  3. pears
+_cat hello.md_ - reads the contents of "hello.md"
 
-A [link](http://example.com).
+_cp hello.md hello-again.md_ - copys the contents of the first file to the new second file.
 
-Commands.
-LS - lists the contents of the current directory
+_mv hello-again.md hello-hello.md_ - renames the hello-agian as hello-hello
 
-cd /tmp - Sets the directory to a tempary file location
+_rm hello.md_ - removes the file hello.md
 
-cd $HOME - sets the save directory to home
+_rm -rf_ - rm removes directory -r moves directory and their contents recursively -f ignores nonexistent files and arguments
 
-mkdir - makes a new directory(folder)
+_cat/proc/cpuinfo_ - reads the cpu info and prints to terminal
 
-echo "Hello" > hello.md - creates a file called "hello.md" containing the contents of the quote marks
+_ls -al_ - list contents of directory including hidden files
 
-cat hello.md - reads the contents of "hello.md"
+_git init_ - creates git repository
 
-cp hello.md hello-again.md - copys the contents of the first file to the new second file.
+_git config user.name "FirstName Surname"_ - tells git your user name
+_git config user.email "email"_ - tells git your email
 
-mv hello-again.md hello-hello.md - renames the hello-agian as hello-hello
+_git commit <File>_ - creates a commit
+_git log_ - shows previous commits
 
-rm hello.md - removes the file hello.md
+## Pushing git online
+_git remote add origin https://github.com/<UserName>/<RepositoryName>.git_ - states location of repository on github
+_git push -u origin master_ - pushes repository online
 
-rm -rf - rm removes directory -r moves directory and their contents recursively -f ignores nonexistent files and arguments
+# Thursday 5th of October  
+## Making a Motor  
+first we used the adheasice copper tape to cover one end of the cork to create a surphase for the brushes to interract with.
+we used aproximatly 10M of copper wire to wind around the cork, this total 111 turns.
+we measured the resistance of this to be 5.6 ohms.
 
-cat/proc/cpuinfo - reads the cpu info and prints to terminal
-
-ls -al - list contents of directory including hidden files
-
-git init - creates git repository
-
-git config user.name "FirstName Surname - tells git your user name
-git config user.email "email"- tells git your email
-
-git commit - creates a commit
-
-Pushing git online
-git remote add origin https://github.com/<UserName>/<RepositoryName>.git
-git push -u origin master
