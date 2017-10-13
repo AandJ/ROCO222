@@ -1,23 +1,22 @@
 # Monday 25th of September  
-##What is Markdown  
+## What is Markdown  
 Markdown is a lightweight markup language, it is a text to HTML conversion tool which makes code easeir to read and understand.
 
-Markdown syntax
-# Heading
+## Markdown syntax
 
-## Sub-heading
+#-Heading
 
-### Another deeper heading
- 
-Paragraphs are separated
-by a blank line.
+##-Sub-heading
+
+###-Another deeper heading
 
 Two spaces at the end of a line leave a  
 line break.
 
 Text attributes _italic_, *italic*, __bold__, **bold**, `monospace`.
 
-To begin i learnt the basic syntax for a markdown document which i have used to format this page, i then using the terminal entered some basic commands to figure out what they do.  
+To begin i learnt the basic syntax for a markdown document which i have used to format this page, i then using the terminal entered some basic commands to figure out what they do. 
+ 
 ## Commands.  
 _LS_ - lists the contents of the current directory
 
@@ -61,3 +60,4 @@ first we used the adheasice copper tape to cover one end of the cork to create a
 we used aproximatly 10M of copper wire to wind around the cork, this total 111 turns.
 we measured the resistance of this to be 5.6 ohms.
 
+![Image of motor](https://github.com/AandJ/ROCO222/blob/master/ROCO222_IMG/001.JPG "Image of motor")
