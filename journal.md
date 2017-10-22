@@ -60,4 +60,20 @@ first we used the adheasice copper tape to cover one end of the cork to create a
 we used aproximatly 10M of copper wire to wind around the cork, this total 111 turns.
 we measured the resistance of this to be 5.6 ohms.
 
-![Image of motor](https://github.com/AandJ/ROCO222/blob/master/ROCO222_IMG/001.JPG "Image of motor")
+![Image of motor](https://raw.githubusercontent.com/AandJ/ROCO222/blob/master/ROCO222_IMG/041.JPG "Image of motor")
+
+## Improved Motor
+To improve upon the motot we desided we would use more coils of wire, the benefit to this is than with more than one coil the motor 
+will be able to start spinning from any position whearas with a single coil no torque will be produced when the wires are at 
+90 degrees to the magnet. Another benefit to more coils is that the torque is produced at a more constant rate, this means that
+the more coils you have the less the torwue varies.  We decided to only use 60 windings of wire per coil rather than the previous 111,
+this is because we need to make sure the wires fit arround the motor.
+
+![Image of improved motor](https://raw.githubusercontent.com/AandJ/ROCO222/blob/master/ROCO222_IMG/006.JPG "Image of improved motor")
+![Image of improved motor](https://raw.githubusercontent.com/AandJ/ROCO222/blob/master/ROCO222_IMG/008.JPG "Image of improved motor")
+
+We also designed an improved stand to hold the motor so that its rotation would be more uniform, we decided to 3D print the stand as it allowed us a more comple shape,
+we also chose 3D printing over other options as it is something we had not done before and we wished to gain experience with the technique.
+
+![Image of improved stand design](https://raw.githubusercontent.com/AandJ/ROCO222/blob/master/ROCO222_IMG/001.JPG "Image of improved stand design")
+![Image of improved stand](https://raw.githubusercontent.com/AandJ/ROCO222/blob/master/ROCO222_IMG/016.JPG "Image of improved stand")
