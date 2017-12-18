@@ -122,6 +122,6 @@ and upper limit which dictates how much the joint can roate, finaly we define ve
 
 The complete rviz product is shown in the video below
 
-![RVIZ Screen grab](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/RVIZ-SCREENGRAB.JPG "RVIZ Screen grab")
+![RVIZ Screen grab](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/RVIZ-SCREENGRAB "RVIZ Screen grab")
 #video of arm
 
