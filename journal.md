@@ -89,6 +89,8 @@ it was vissible that the motor span significantly faster than the previous desig
 ![Image of encoder testing](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/3-1.JPG "Image of encoder testing")
 ![Image of encoder testing](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/3-4.JPG "Image of encoder testing")
 
+Our motors speed varied significantly due to are low quality componets and inacuracys in the placement of the magnets.
+
 # Monday 18th of December
 ## Making a ROBOT ARM
 We decided to have four degrees of motion, one to rotate the entire base, one for each limb, as well as a gripper. we decided to 3d print the model as we would have an
@@ -120,6 +122,6 @@ and upper limit which dictates how much the joint can roate, finaly we define ve
 
 The complete rviz product is shown in the video below
 
-![RVIZ Screen grab](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/RVIZ-SCREENGRAB.PNG "RVIZ Screen grab")
+![RVIZ Screen grab](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/RVIZ-SCREENGRAB.JPG "RVIZ Screen grab")
 #video of arm
 
