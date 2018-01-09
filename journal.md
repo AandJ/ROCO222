@@ -103,8 +103,7 @@ intricate design for the base and gripper.
 to control this with the ROS sfotware we needed to create a URDF description file of our design, in this file we descriped each link and joint.
 a link defenition is shown below  
 
-![Image of URDF code](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/LINK-IMG.jpg "Image of URDF code")
-```
+```xml
  <link name="base_lower">
     <visual>
       <geometry>
@@ -133,8 +132,7 @@ I also define a material which I have created in the URDF file so that each link
 conects that link to its parent link, for the first link (base_lower) the origin is based around the centre of rviz, I had to adjust the origin due to our artistic design so that this
 was also centered. We also had to define the joints in the URDF files, a joint defenition is shown below.
 
-![Image of URDF code](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/JOINT-IMG.jpg "Image of URDF code")
-```
+```xml
   <joint name="BtF" type="revolute">
     <axis xyz="0 1 0" />
     <limit effort="1000" lower="-1.57" upper="1.57" velocity="0.1" />
@@ -150,9 +148,7 @@ was also centered. We also had to define the joints in the URDF files, a joint d
     <child link="second_limb"/>
     <origin xyz="0 -0.015 0.085" />
   </joint>
-```
-![Image of URDF code](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/FIXED-JOINT-IMG.jpg "Image of URDF code")
-```
+
   <joint name="Gripper_main" type="fixed">
     <parent link="second_limb"/>
     <child link="gripper_main"/>
