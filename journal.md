@@ -104,6 +104,29 @@ to control this with the ROS sfotware we needed to create a URDF description fil
 a link defenition is shown below  
 
 ![Image of URDF code](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/LINK-IMG.jpg "Image of URDF code")
+```
+ <link name="base_lower">
+    <visual>
+      <geometry>
+        <!--cylinder length="0.040" radius="0.070"/> -->
+	<mesh filename="file://home/home/bonnie/Robot-ARM/base_lower.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+	  <material name="red"/>
+	  <origin rpy="1.57 0 0" xyz="-0.005 0.005 0.020" />
+    </visual>
+  </link>
+
+  <link name="base_upper">
+    <visual>
+      <geometry>
+        <!-- cylinder length="0.015" radius="0.070"/> -->
+	<mesh filename="file://home/home/bonnie/Robot-ARM/base_upper.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+	  <material name="white"/>
+	  <origin rpy="1.57 0 1.57" xyz="0 0 0.005" />
+    </visual>
+  </link>
+```
 
 first we define a name for our link, then for the geometric shape we reference the stl files as a mesh, this accesses our 3d design file so that rviz has the exact shape of our robot,
 I also define a material which I have created in the URDF file so that each link is the correct color, finaly I define the origin of the link, the origin is based around the joint that
@@ -111,7 +134,37 @@ conects that link to its parent link, for the first link (base_lower) the origin
 was also centered. We also had to define the joints in the URDF files, a joint defenition is shown below.
 
 ![Image of URDF code](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/JOINT-IMG.jpg "Image of URDF code")
+```
+  <joint name="BtF" type="revolute">
+    <axis xyz="0 1 0" />
+    <limit effort="1000" lower="-1.57" upper="1.57" velocity="0.1" />
+    <parent link="base_upper"/>
+    <child link="first_limb"/>
+    <origin xyz="0 0.02 0.105" />
+  </joint>
+
+  <joint name="FtS" type="revolute">
+    <axis xyz="0 1 0" />
+    <limit effort="1000" lower="-1.57" upper="1.57" velocity="0.1" />
+    <parent link="first_limb"/>
+    <child link="second_limb"/>
+    <origin xyz="0 -0.015 0.085" />
+  </joint>
+```
 ![Image of URDF code](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/FIXED-JOINT-IMG.jpg "Image of URDF code")
+```
+  <joint name="Gripper_main" type="fixed">
+    <parent link="second_limb"/>
+    <child link="gripper_main"/>
+    <origin xyz="-0.0075 -0.02 0.145" />
+  </joint>
+
+  <joint name="Gripper_cap" type="fixed">
+    <parent link="gripper_main"/>
+    <child link="gripper_cap"/>
+    <origin xyz="0.005 0 0" />
+  </joint>
+```
 
 Once again we have to define a name for the joint, then we can define its type, the types can be revolute which allow for 1 degree of motion around an axis with limits, continous which
 allows for 1 degree of motion around the axis without limits, prismatic which is a sliding joint along an axis with set limits, fixed which doesn not allow any movement, floating which
@@ -126,4 +179,14 @@ The complete rviz product is shown in the video below
 ![RVIZ Screen grab](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/RVIZ-SCREENGRAB "RVIZ Screen grab")
 
 [![Video of RVIZ](http://img.youtube.com/vi/HuHuthRY6EE/0.jpg)](https://www.youtube.com/watch?v=HuHuthRY6EE "Video of RVIZ")
+
+to control the physical robot we needed to code the arduino so that it would subscribe to the ros joint state publisher and use the recieved values to control the servo mottors.
+```cpp
+  nh.initNode();
+  nh.subscribe(sub);
+  nh.advertise(pub_debugR);
+  nh.advertise(pub_js);
+```
+
+we use "nh.subscribe" (node handler subscribe) to subscribe to the joint state publisher in ROS, once these values have been taken from ROS we can use them to control the PWM of the servo mottors. "nh.advertise" is used to send databack to ros.
 
