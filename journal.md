@@ -177,12 +177,33 @@ The complete rviz product is shown in the video below
 [![Video of RVIZ](http://img.youtube.com/vi/HuHuthRY6EE/0.jpg)](https://www.youtube.com/watch?v=HuHuthRY6EE "Video of RVIZ")
 
 to control the physical robot we needed to code the arduino so that it would subscribe to the ros joint state publisher and use the recieved values to control the servo mottors.
+
 ```cpp
   nh.initNode();
   nh.subscribe(sub);
   nh.advertise(pub_debugR);
   nh.advertise(pub_js);
 ```
+we use "nh.subscribe" (node handler subscribe) to subscribe to the joint state publisher in ROS, once these values have been taken from ROS we can use them to control the PWM of the servo mottors. "nh.advertise" is used to send databack to ros. to use the values read from ROS i need to re-map them to within the range i needed, the code below shows this.
 
-we use "nh.subscribe" (node handler subscribe) to subscribe to the joint state publisher in ROS, once these values have been taken from ROS we can use them to control the PWM of the servo mottors. "nh.advertise" is used to send databack to ros.
+```cpp
+void servo_cb( const sensor_msgs::JointState& cmd_msg){
+    js = cmd_msg;
+    pub_js.publish(&js);
+    pos = cmd_msg.position[0];
+    angle1 = map(pos*100, -157, 157, 0, 179);     // scale it to use it with the servo (value between 0 and 180)
+    pos = cmd_msg.position[1];
+    angle2 = map(pos*100, -157, 157, 0, 179);     // scale it to use it with the servo (value between 0 and 180)
+//  pos = cmd_msg.position[2];
+//  angle3 = map(pos*100, -100, 0, 0, 85);        // scale it to use it with the micro servo
+    
+  
+  servo1.write(angle1);                           //set servo angle, should be from 0-180
+  servo2.write(angle2);                           //set servo angle, should be from 0-180 
+//  servo3.write(angle3);                           //set servo angle, should be from 0-85
+  digitalWrite(13, HIGH-digitalRead(13));  //toggle led  
+}
+```
+
+I subscribed to the ROS location js to print a string for the purpose of debuging, i then saved the position data to a local variable which i then inserted into the map function, the first value is the value to be mapped followed by the lowest possible value and then the highest possible value, the last two numbers are the minimum and maximum of the mapped value.
 
