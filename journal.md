@@ -63,7 +63,7 @@ we measured the resistance of this to be 5.6 ohms.
 ![Image of motor](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/041.JPG "Image of motor")
 
 ### Video
-<a href="https://www.youtube.com/watch?v=IyP9AZi4azg" target="_blank"><img src="http://img.youtube.com/vi/IyP9AZi4azg/0.jpg" alt="Video of Motor" width="480" height="400" border="0" /></a>
+<a href="https://www.youtube.com/watch?v=IyP9AZi4azg" target="_blank"><img src="http://img.youtube.com/vi/IyP9AZi4azg/0.jpg" alt="Video of Motor" width="480" height="340" border="0" /></a>
 
 ## Improved Motor
 To improve upon the motot we desided we would use more coils of wire, the benefit to this is than with more than one coil the motor 
@@ -86,7 +86,7 @@ Once all the componets had been printed we assembled the motor, we set up the br
 ![Image of improved motor](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/3-2.JPG "Image of improved motor")
 
 ### Video
-<a href="https://www.youtube.com/watch?v=8vkcDZ_r6UE" target="_blank"><img src="http://img.youtube.com/vi/8vkcDZ_r6UE/0.jpg" alt="Video of improved motor" width="480" height="400" border="0" /></a>
+<a href="https://www.youtube.com/watch?v=8vkcDZ_r6UE" target="_blank"><img src="http://img.youtube.com/vi/8vkcDZ_r6UE/0.jpg" alt="Video of improved motor" width="480" height="340" border="0" /></a>
 
 it was vissible that the motor span significantly faster than the previous design. To confirm this we built and encoder which would allow us to determine the speed at which our motor span, we used an arduino and a circular disk with a slot cut out to measure the number of times a beam of light was broken, the result would then be output to a terminal. we used the arduino line plotter feature to give us a graph of motor speed.
 
@@ -178,7 +178,7 @@ The complete rviz product is shown in the video below
 ![RVIZ Screen grab](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/RVIZ-SCREENGRAB "RVIZ Screen grab")
 
 ### Video
-<a href="https://www.youtube.com/watch?v=HuHuthRY6EE" target="_blank"><img src="http://img.youtube.com/vi/HuHuthRY6EE/0.jpg" alt="Video of RVIZ" width="480" height="400" border="0" /></a>
+<a href="https://www.youtube.com/watch?v=HuHuthRY6EE" target="_blank"><img src="http://img.youtube.com/vi/HuHuthRY6EE/0.jpg" alt="Video of RVIZ" width="480" height="340" border="0" /></a>
 
 to control the physical robot we needed to code the arduino so that it would subscribe to the ros joint state publisher and use the recieved values to control the servo mottors.
 
@@ -209,8 +209,8 @@ void servo_cb( const sensor_msgs::JointState& cmd_msg){
 }
 ```
 
-
-### Video
-<a href="https://www.youtube.com/watch?v=289UI_HXdns" target="_blank"><img src="http://img.youtube.com/vi/289UI_HXdns/0.jpg" alt="Video of Arm" width="480" height="400" border="0" /></a>
 I subscribed to the ROS location js to print a string for the purpose of debuging, i then saved the position data to a local variable which i then inserted into the map function, the first value is the value to be mapped followed by the lowest possible value and then the highest possible value, the last two numbers are the minimum and maximum of the mapped value.
 
+
+### Video
+<a href="https://www.youtube.com/watch?v=289UI_HXdns" target="_blank"><img src="http://img.youtube.com/vi/289UI_HXdns/0.jpg" alt="Video of Arm" width="480" height="340" border="0" /></a>
