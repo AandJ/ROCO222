@@ -175,6 +175,7 @@ The complete rviz product is shown in the video below
 ![RVIZ Screen grab](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/RVIZ-SCREENGRAB "RVIZ Screen grab")
 
 [![Video of RVIZ](http://img.youtube.com/vi/HuHuthRY6EE/0.jpg)](https://www.youtube.com/watch?v=HuHuthRY6EE "Video of RVIZ")
+<a href="https://www.youtube.com/watch?v=HuHuthRY6EE" target="_blank"><img src="http://img.youtube.com/vi/HuHuthRY6EE/0.jpg"alt="Video of RVIZ" width="240" height="180" border="10" /></a>
 
 to control the physical robot we needed to code the arduino so that it would subscribe to the ros joint state publisher and use the recieved values to control the servo mottors.
 
@@ -200,8 +201,8 @@ void servo_cb( const sensor_msgs::JointState& cmd_msg){
   
   servo1.write(angle1);                           //set servo angle, should be from 0-180
   servo2.write(angle2);                           //set servo angle, should be from 0-180 
-//  servo3.write(angle3);                           //set servo angle, should be from 0-85
-  digitalWrite(13, HIGH-digitalRead(13));  //toggle led  
+//servo3.write(angle3);                           //set servo angle, should be from 0-85
+  digitalWrite(13, HIGH-digitalRead(13));  	  //toggle led
 }
 ```
 
