@@ -4,16 +4,21 @@ Markdown is a lightweight markup language, it is a text to HTML conversion tool 
 
 ## Markdown syntax
 
-#-Heading
+```md
+# Heading
 
-##-Sub-heading
+## Sub-heading
 
-###-Another deeper heading
+### Another deeper heading
 
+[Image Name](Image_Path ADRESS.JPG "ALT TEXT")
+
+<a href="https://www.youtube.com/watch?v=Video_ID" target="_blank"><img src="http://img.youtube.com/vi/Video_ID/0.jpg" alt="ALT TEXT" width="640" height="360" border="0" /></a>
+
+_italic_, *italic*, __bold__, **bold**, `monospace`.
+```
 Two spaces at the end of a line leave a  
 line break.
-
-Text attributes _italic_, *italic*, __bold__, **bold**, `monospace`.
 
 To begin i learnt the basic syntax for a markdown document which i have used to format this page, i then using the terminal entered some basic commands to figure out what they do. 
  
@@ -51,7 +56,7 @@ _git commit <File>_ - creates a commit
 _git log_ - shows previous commits
 
 ## Pushing git online
-_git remote add origin https://github.com/<UserName>/<RepositoryName>.git_ - states location of repository on github
+_git remote add origin https://github.com/<UserName>/<RepositoryName>.git_ - states location of repository on github  
 _git push -u origin master_ - pushes repository online
 
 # Thursday 5th of October  
@@ -63,7 +68,7 @@ we measured the resistance of this to be 5.6 ohms.
 ![Image of motor](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/041.JPG "Image of motor")
 
 ### Video
-<a href="https://www.youtube.com/watch?v=IyP9AZi4azg" target="_blank"><img src="http://img.youtube.com/vi/IyP9AZi4azg/0.jpg" alt="Video of Motor" width="480" height="340" border="0" /></a>
+<a href="https://www.youtube.com/watch?v=IyP9AZi4azg" target="_blank"><img src="http://img.youtube.com/vi/IyP9AZi4azg/0.jpg" alt="Video of Motor" width="640" height="360" border="0" /></a>
 
 ## Improved Motor
 To improve upon the motot we desided we would use more coils of wire, the benefit to this is than with more than one coil the motor 
@@ -86,7 +91,7 @@ Once all the componets had been printed we assembled the motor, we set up the br
 ![Image of improved motor](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/3-2.JPG "Image of improved motor")
 
 ### Video
-<a href="https://www.youtube.com/watch?v=8vkcDZ_r6UE" target="_blank"><img src="http://img.youtube.com/vi/8vkcDZ_r6UE/0.jpg" alt="Video of improved motor" width="480" height="340" border="0" /></a>
+<a href="https://www.youtube.com/watch?v=8vkcDZ_r6UE" target="_blank"><img src="http://img.youtube.com/vi/8vkcDZ_r6UE/0.jpg" alt="Video of improved motor" width="640" height="360" border="0" /></a>
 
 it was vissible that the motor span significantly faster than the previous design. To confirm this we built and encoder which would allow us to determine the speed at which our motor span, we used an arduino and a circular disk with a slot cut out to measure the number of times a beam of light was broken, the result would then be output to a terminal. we used the arduino line plotter feature to give us a graph of motor speed.
 
@@ -171,14 +176,31 @@ allows movements in all 6 degrees, and planar which allows movement in the plane
 We also need to define the axis in which it rotates aswell as its limit, in the limit we have to defien the effort which is the maximum force that can be applied, we also define the lower
 and upper limit which dictates how much the joint can roate, finaly we define velocity which sets the maximum velocity at which the joint can roate. We also have to define the parent and child of the joint, the parent is the link that the joint attaches to and the child is the link it moves. we also have to define the origin of the link. in the case of the gripper we set the joint for the second gear to mimic the first gear, this code is shown below.
 
-![Image of URDF code](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/MIMIC-IMG.jpg "Image of URDF code")
+```xml
+  <joint name="Gripper_gear_rot" type="revolute">
+    <axis xyz="1 0 0" />
+    <limit effort="1000" lower="-1" upper="0" velocity="0.5" />
+    <parent link="gripper_main"/>
+    <child link="gripper_gear_right"/>
+    <origin xyz="0.0045 0.04 0" />
+  </joint>
+
+  <joint name="Gripper_gear_mimic" type="revolute">
+    <axis xyz="1 0 0" />
+    <limit effort="1000" lower="0" upper="1" velocity="0.5" />
+    <mimic joint="Gripper_gear_rot" multiplier="-1"/>
+    <parent link="gripper_main"/>
+    <child link="gripper_gear_left"/>
+    <origin xyz="0.0045 0 0" />
+  </joint>
+```
 
 The complete rviz product is shown in the video below
 
 ![RVIZ Screen grab](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/RVIZ-SCREENGRAB "RVIZ Screen grab")
 
 ### Video
-<a href="https://www.youtube.com/watch?v=HuHuthRY6EE" target="_blank"><img src="http://img.youtube.com/vi/HuHuthRY6EE/0.jpg" alt="Video of RVIZ" width="480" height="340" border="0" /></a>
+<a href="https://www.youtube.com/watch?v=HuHuthRY6EE" target="_blank"><img src="http://img.youtube.com/vi/HuHuthRY6EE/0.jpg" alt="Video of RVIZ" width="640" height="360" border="0" /></a>
 
 to control the physical robot we needed to code the arduino so that it would subscribe to the ros joint state publisher and use the recieved values to control the servo mottors.
 
@@ -213,4 +235,4 @@ I subscribed to the ROS location js to print a string for the purpose of debugin
 
 
 ### Video
-<a href="https://www.youtube.com/watch?v=289UI_HXdns" target="_blank"><img src="http://img.youtube.com/vi/289UI_HXdns/0.jpg" alt="Video of Arm" width="480" height="340" border="0" /></a>
+<a href="https://www.youtube.com/watch?v=289UI_HXdns" target="_blank"><img src="http://img.youtube.com/vi/289UI_HXdns/0.jpg" alt="Video of Arm" width="640" height="360" border="0" /></a>
