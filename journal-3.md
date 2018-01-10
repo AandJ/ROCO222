@@ -143,8 +143,8 @@ I subscribed to the ROS topic js to print a string for the purpose of debugging,
 We later added a third degree of motion, this allowed our gripper to move however we found the microservo did not have enough torque to move our gripper.
 
 ## Navigation
-[Itroduction to markdown and GIT](https://github.com/AandJ/ROCO222/blob/master/journal.md)
+[Introduction to markdown and GIT](https://github.com/AandJ/ROCO222/blob/master/journal.md)
 ***
-[Making a Mottor](https://github.com/AandJ/ROCO222/blob/master/journal-2.md)
+[Making a Motor](https://github.com/AandJ/ROCO222/blob/master/journal-2.md)
 ***
 __Making a robotic Arm__
