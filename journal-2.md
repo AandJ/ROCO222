@@ -32,7 +32,7 @@ Once all the components had been printed we assembled the motor, we set up the b
 ### Video
 <a href="https://www.youtube.com/watch?v=8vkcDZ_r6UE" target="_blank"><img src="http://img.youtube.com/vi/8vkcDZ_r6UE/0.jpg" alt="Video of improved motor" width="640" height="360" border="0" /></a>
 
-it was visible that the motor span significantly faster than the previous design. To confirm this we built and encoder which would allow us to determine the speed at which our motor span, we used an Arduino and a circular disk with a slot cut out to measure the number of times a beam of light was broken, the result would then be output to a terminal. we used the Arduino line plotter feature to give us a graph of motor speed.
+it was visible that the motor span significantly faster than the previous design. To confirm this we built and encoder which would allow us to determine the speed at which our motor span, we used an Arduino and a circular disk with a slot cut out to measure the number of times a beam of light was broken, the result would then be output to a terminal. we used the rduino line plotter feature to give us a graph of motor speed.
 
 ![Image of encoder testing](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/3-1.JPG "Image of encoder testing")
 ![Image of encoder testing](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/3-4.JPG "Image of encoder testing")
@@ -40,9 +40,9 @@ it was visible that the motor span significantly faster than the previous design
 Our motors speed varied significantly due to are low quality componets and the fact that the contact between the brushes of the motor were loose meaning at some points of its rotation more than one coil was conected, this could be fixed by designer a better more stable brush.
 
 ## Navigation
-[Itroduction to markdown and GIT](https://github.com/AandJ/ROCO222/blob/master/journal.md)
+[Introduction to markdown and GIT](https://github.com/AandJ/ROCO222/blob/master/journal.md)
 ***
-__Making a Mottor__
+__Making a Motor__
 ***
 [Making a robotic Arm](https://github.com/AandJ/ROCO222/blob/master/journal-3.md)
 
