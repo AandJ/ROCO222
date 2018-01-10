@@ -100,6 +100,8 @@ The complete rviz product is shown in the video below
 ### Video
 <a href="https://www.youtube.com/watch?v=HuHuthRY6EE" target="_blank"><img src="http://img.youtube.com/vi/HuHuthRY6EE/0.jpg" alt="Video of RVIZ" width="640" height="360" border="0" /></a>
 
+[LINK TO FULL URDF CODE](https://github.com/AandJ/ROCO222/blob/master/journal-urdf.md)
+
 to control the physical robot we needed to code the arduino so that it would subscribe to the ros joint state topic and use the recieved values to control the servo mottors.
 
 ```cpp
@@ -133,8 +135,7 @@ void servo_cb( const sensor_msgs::JointState& cmd_msg){
 }
 ```
 
-I subscribed to the ROS topic js to print a string for the purpose of debuging, i then saved the position data to a local variable which i then inserted into the map function, the first value of the function is the value to be mapped followed by the lowest possible value and then the highest possible value, the last two numbers are the minimum and maximum of the generated mapped value. Once the values have been mapped to between 0 and 180 i then use `Servo.write(VALUE)` function from the servo libary to move the servo to the desired position.
-
+I subscribed to the ROS topic js to print a string for the purpose of debuging, i then saved the position data to a local variable which i then inserted into the map function, the first value of the function is the value to be mapped followed by the lowest possible value and then the highest possible value, the last two numbers are the minimum and maximum of the generated mapped value. Once the values have been mapped to between 0 and 180 i then use `Servo.write(VALUE)` function from the servo libary to move the servo to the desired position. When we tried to run our code for the first time we encountered issues, this wa because the ammount of data in the sunscribed ros topic exceeded the buffer of our arduino, we had to reduce the degrees of motion to be able to run our code, for a prelimanary test we used two degrees of motion, this test is shown in the video below.
 
 ### Video
 <a href="https://www.youtube.com/watch?v=289UI_HXdns" target="_blank"><img src="http://img.youtube.com/vi/289UI_HXdns/0.jpg" alt="Video of Arm" width="640" height="360" border="0" /></a>
