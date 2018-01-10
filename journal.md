@@ -67,6 +67,6 @@ __git pull origin master__ - pull the repository from github, used to update if 
 ## Navigation
 __Introduction to markdown and GIT__
 ***
-[Making a Mottor](https://github.com/AandJ/ROCO222/blob/master/journal-2.md)
+[Making a Motor](https://github.com/AandJ/ROCO222/blob/master/journal-2.md)
 ***
 [Making a robotic Arm](https://github.com/AandJ/ROCO222/blob/master/journal-3.md)
