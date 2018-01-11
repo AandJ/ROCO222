@@ -6,7 +6,7 @@ intricate design for the base and gripper.
 ![Image of design file](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/STL-IMG.jpg "Image of design file")
 ![Image of printed arm](https://raw.githubusercontent.com/AandJ/ROCO222/master/ROCO222_Img/ROBOT-IMG.jpg "Image of printed arm")
 
-To control this with the ROS software we needed to create a URDF description file of our design, in this file we described each link and joint.
+To control this with the ROS software we need to create a URDF description file of our design, in this file we describe each link and joint.
 a link definition is shown below.  
 
 ```xml
@@ -114,7 +114,25 @@ To control the physical robot we needed to code the Arduino so that it would sub
   servo2.attach(ARMSERVO);                                //Arm joint servo attached to pin 6
 ```
 
-We use "nh.subscribe" (node handler subscribe) to subscribe to the joint state topic in ROS, once these values have been taken from ROS we can use them to control the PWM of the servo motors. "nh.advertise" is used to send data back to ros. I used the servo library function servo.attach to control each servo. To use the values published from ROS I need to re-map them to within the range I needed, the code below shows this.
+We use "nh.subscribe" (node handler subscribe) to subscribe to the joint state topic in ROS, once these values have been taken from ROS we can use them to control the PWM of the servo motors. "nh.advertise" is used to send data back to ros. I used the servo library function servo.attach to control each servo. To call the function that controls the motor we use the node handler spin once function as shown below.
+
+```cpp
+void loop(){
+  pos_msgs.data = angle1;
+  pub_debugR.publish(&pos_msgs);
+  pos_msgs.data = angle2;
+  pub_debugR.publish(&pos_msgs);
+//  pos_msgs.data = angle3;
+//  pub_debugR.publish(&pos_msgs);
+  
+  
+  
+  nh.spinOnce();
+  delay(1);
+}
+```
+
+In "loop" we publish the current content of the angle variables via one of the advertised topics for the purpose of debugging. We also us the "nh.spinOnce" command, this calls all the callbacks waiting to be called. Below is the servo control call back.
 
 ```cpp
 void servo_cb( const sensor_msgs::JointState& cmd_msg){
@@ -135,7 +153,7 @@ void servo_cb( const sensor_msgs::JointState& cmd_msg){
 }
 ```
 
-I subscribed to the ROS topic js to print a string for the purpose of debugging, I then saved the position data to a local variable which I then inserted into the map function, the first value of the function is the value to be mapped followed by the lowest possible value and then the highest possible value, the last two numbers are the minimum and maximum of the generated mapped value. Once the values have been mapped to between 0 and 180 I then use `Servo.write(VALUE)` function from the servo library to move the servo to the desired position. When we tried to run our code for the first time we encountered issues, this was because the amount of data in the subscribed ros topic exceeded the buffer of our Arduino, we had to reduce the degrees of motion to be able to run our code, for a preliminary test we used two degrees of motion, this test is shown in the video below.
+In the call back I subscribed to the ROS topic js to print a string for the purpose of debugging, I then saved the position data to a local variable which I then inserted into the map function, the first value of the function is the value to be mapped followed by the lowest possible value and then the highest possible value, the last two numbers are the minimum and maximum of the generated mapped value. Once the values have been mapped to between 0 and 180 I then use `Servo.write(VALUE)` function from the servo library to move the servo to the desired position. When we tried to run our code for the first time we encountered issues, this was because the amount of data in the subscribed ros topic exceeded the buffer of our Arduino, we had to reduce the degrees of motion to be able to run our code, for a preliminary test we used two degrees of motion, this test is shown in the video below.
 
 ### Video
 <a href="https://www.youtube.com/watch?v=289UI_HXdns" target="_blank"><img src="http://img.youtube.com/vi/289UI_HXdns/0.jpg" alt="Video of Arm" width="640" height="360" border="0" /></a>
