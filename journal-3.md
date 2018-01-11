@@ -129,7 +129,7 @@ void loop(){
   
   nh.spinOnce();
   delay(1);
-}
+} 
 ```
 
 In "loop" we publish the current content of the angle variables via one of the advertised topics for the purpose of debugging. We also us the "nh.spinOnce" command, this calls all the callbacks waiting to be called. Below is the servo control call back.
@@ -147,7 +147,7 @@ void servo_cb( const sensor_msgs::JointState& cmd_msg){
     
   
   servo1.write(angle1);                           //set servo angle, should be from 0-180
-  servo2.write(angle2);                          //set servo angle, should be from 0-180 
+  servo2.write(angle2);                           //set servo angle, should be from 0-180 
 //servo3.write(angle3);                           //set servo angle, should be from 0-85
   digitalWrite(13, HIGH-digitalRead(13));  	  //toggle led
 }
@@ -158,7 +158,7 @@ In the call back I subscribed to the ROS topic js to print a string for the purp
 ### Video
 <a href="https://www.youtube.com/watch?v=289UI_HXdns" target="_blank"><img src="http://img.youtube.com/vi/289UI_HXdns/0.jpg" alt="Video of Arm" width="640" height="360" border="0" /></a>
 
-We later added a third degree of motion, this allowed our gripper to move however we found the microservo did not have enough torque to move our gripper.
+We later added a third degree of motion, this would have allowed our gripper to move however we found the micro servo did not have enough torque to move our gripper.
 
 ## Navigation
 [Introduction to markdown and GIT](https://github.com/AandJ/ROCO222/blob/master/journal.md)
